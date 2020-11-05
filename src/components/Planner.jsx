@@ -6,7 +6,8 @@ const Planing = () => {
   const { state } = useContext(GlobalContext);
   return (
     <div>
-      <Tasks tasks={state.tasks} />
+      <Tasks tasks={state.tasks} title="backlog" />
+      <Tasks tasks={state.tasks} title="today" />
     </div>
   );
 };

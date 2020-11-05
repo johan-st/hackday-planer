@@ -4,26 +4,17 @@ const Task = ({ task, provided }) => {
   return (
     <li
       className="card"
-      {...provided.dragableProps}
-      {...provided.dragHandlePrps}
-      ref={provided.innerRefs}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={provided.innerRef}
     >
       <h2>{task.title}</h2>
       <p>id:{task.id}</p>
       <p>{task.desc}</p>
       <p>blocked:{task.blocked}</p>
-      {/* <p>created:{task.created.toLocaleString()}</p>
+      <p>created:{task.created.toLocaleString()}</p>
       {task.completed ? <p>done:{task.completed.toLocaleString()}</p> : <></>}
-      {task.scheduled.length > 0 ? (
-        <div>
-          scheduled:
-          {task.scheduled.map((d, i) => (
-            <p key={i}>{d.toLocaleString()}</p>
-          ))}
-        </div>
-      ) : (
-        <></>
-      )} */}
+      <div>scheduled:{task.scheduled.length} times</div>
     </li>
   );
 };
