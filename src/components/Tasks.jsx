@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Task from './Task';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Tasks = ({ tasks, title }) => {
-  const [list, setList] = useState(tasks);
-
   return (
     <Droppable droppableId={title}>
       {(provided, snapshot) => {
@@ -19,7 +17,7 @@ const Tasks = ({ tasks, title }) => {
             ref={provided.innerRef}
           >
             <h2>{title}</h2>
-            {list.map((task, index) => (
+            {tasks.map((task, index) => (
               <Draggable key={task.id} draggableId={task.id} index={index}>
                 {(provided, snapshot) => {
                   return (

@@ -1,12 +1,9 @@
-// import { tasks } from './placeholders';
-
 const initialState = { status: 'loading', backlog: [], today: [] };
 
-const DRAG_END = res => ({ type: 'DRAG_END', payload: res });
-const GOT_TASKS = res => ({ type: 'GOT_TASKS', payload: res });
+export const DRAG_END = res => ({ type: 'DRAG_END', payload: res });
+export const GOT_TASKS = res => ({ type: 'GOT_TASKS', payload: res });
 
 const reducer = (state, action) => {
-  const { backlog, today, status } = state;
   console.log(action);
   switch (action.type) {
     case 'DRAG_END':
@@ -15,17 +12,17 @@ const reducer = (state, action) => {
       }
       const { source, destination } = action.payload;
       const sourceClone =
-        source.droppableId === 'backlog' ? state.backlog : today;
+        source.droppableId === 'backlog' ? state.backlog : state.today;
       const destClone =
-        destination.droppableId === 'backlog' ? state.backlog : today;
+        destination.droppableId === 'backlog' ? state.backlog : state.today;
       const [movingTask] = sourceClone.splice(source.index, 1);
       destClone.splice(destination.index, 0, movingTask);
       return { ...state, backlog: state.backlog, today: state.today };
 
     case 'GOT_TASKS':
       const { backlog, today } = action.payload;
-      const newState = { ...state, backlog, today };
-      return newState;
+      return { ...state, backlog, today };
+
     default:
       return state;
   }
@@ -87,4 +84,4 @@ const reducer = (state, action) => {
 //     }
 //   };
 
-export { initialState, reducer, DRAG_END, GOT_TASKS };
+export { initialState, reducer };

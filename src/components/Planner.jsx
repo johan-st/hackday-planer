@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import { fetchAll } from '../http';
 import Tasks from './Tasks';
+import AddTask from './AddTask';
 import { GOT_TASKS } from '../reducer';
 
 const Planing = () => {
@@ -14,6 +15,7 @@ const Planing = () => {
   }, [dispatch]);
   return (
     <div className="planner">
+      <AddTask />
       <Tasks tasks={state.backlog} title="backlog" />
       <Tasks tasks={state.today} title="today" />
     </div>
