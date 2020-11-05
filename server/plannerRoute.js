@@ -11,23 +11,30 @@ router.get('/', (req, res) => {
     uptime: `${millisElapsedToString(Date.now() - startTime)}`,
     booted: `${startTime.toUTCString()}`,
     API_schema: {
-      get: {
-        '/api/': '[YOU ARE HERE]',
-        '/api/status': '{status:STATUS}',
-        '/api/tasks':
-          '[...{id, title, desc, created, completed, added:[...UTCString]}]',
+      GET: {
+        '/': '[YOU ARE HERE]',
+        '/tasks': ' LIST TASKS',
+      },
+      POST: {
+        '/tasks': { expects: 'TASK', returns: 'LIST TASKS' },
+      },
+      PUT: {
+        '/tasks:id': { expects: 'TASK', returns: 'LIST TASKS' },
       },
     },
     types: {
       STATUS: 'OK | ERROR STRING',
       TASK: {
-        id: 'uuid v4',
+        id: 'MAYBE ID',
         title: 'STRING',
         desc: 'STRING',
+        blocked: 'BOOLEAN',
         created: 'DATE',
         completed: 'DATE',
-        days_scheduled: 'LIST DATE',
+        scheduled: 'LIST DATE',
       },
+      ID: 'UUIDv4',
+      DATE: 'UTC-TIMESTRING',
     },
   });
 });
