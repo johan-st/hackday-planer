@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
         desc: 'STRING',
         blocked: 'BOOLEAN',
         created: 'DATE',
-        completed: 'DATE',
+        completed: 'MAYBE DATE',
         scheduled: 'LIST DATE',
       },
       ID: 'UUIDv4',

@@ -6,7 +6,7 @@ const tasks = [
     desc: 'description of task numero uno',
     blocked: 'false',
     created: new Date(1604565366469),
-    completed: new Date(1604566366469),
+    completed: null,
     scheduled: [],
   },
   {
@@ -16,7 +16,7 @@ const tasks = [
     desc: 'description of task2 two thwooo',
     blocked: 'false',
     created: new Date(1604565366469),
-    completed: new Date(1604566366469),
+    completed: null,
     scheduled: [],
   },
   {

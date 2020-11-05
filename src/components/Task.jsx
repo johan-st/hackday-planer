@@ -1,15 +1,30 @@
 import React from 'react';
 
-const Task = ({ task }) => {
+const Task = ({ task, provided }) => {
   return (
-    <div>
+    <li
+      className="card"
+      {...provided.dragableProps}
+      {...provided.dragHandlePrps}
+      ref={provided.innerRefs}
+    >
       <h2>{task.title}</h2>
+      <p>id:{task.id}</p>
       <p>{task.desc}</p>
       <p>blocked:{task.blocked}</p>
-      <p>created:{task.created.toLocaleString}</p>
-      <p>done:{task.completed}</p>
-      <p>scheduled:{task.scheduled}</p>
-    </div>
+      {/* <p>created:{task.created.toLocaleString()}</p>
+      {task.completed ? <p>done:{task.completed.toLocaleString()}</p> : <></>}
+      {task.scheduled.length > 0 ? (
+        <div>
+          scheduled:
+          {task.scheduled.map((d, i) => (
+            <p key={i}>{d.toLocaleString()}</p>
+          ))}
+        </div>
+      ) : (
+        <></>
+      )} */}
+    </li>
   );
 };
 
