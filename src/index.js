@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { GlobalContext } from './GlobalContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalContext.Provider>
-      <App />
-    </GlobalContext.Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
