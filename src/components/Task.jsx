@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Task = ({ task, provided }) => {
+const Task = ({ task, provided, snapshot }) => {
+  // console.log(snapshot);
   return (
     <li
-      className="card"
+      className={`card  
+              ${snapshot.isDragging ? 'card--dragging' : ''}
+              `}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       ref={provided.innerRef}
@@ -13,7 +16,7 @@ const Task = ({ task, provided }) => {
       <p>{task.desc}</p>
       <p>blocked:{task.blocked}</p>
       <p>created:{task.created.toLocaleString()}</p>
-      {task.completed ? <p>done:{task.completed.toLocaleString()}</p> : <></>}
+      {task.completed ? <p>done:{task.completed.toLocaleString()}</p> : null}
       <div>scheduled:{task.scheduled.length} times</div>
     </li>
   );

@@ -17,13 +17,23 @@ a {
 li {
   list-style: none;
 }
-.tasks {
+.planner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.task-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid black;
-  width: min-content;
-  margin: 0 auto;
+  min-width: 10rem;
+}
+.task-list--drag-source {
+  border: 1px solid blue;
+}
+.task-list--drag-destination {
+  border: 1px solid red;
 }
 .card {
   border: 1px solid black;
@@ -31,4 +41,7 @@ li {
   margin: 0.5rem 1rem;
   width: 400px;
   background-color: var(--clr-bg);
+}
+.card--dragging {
+  border: 1px solid blue;
 }

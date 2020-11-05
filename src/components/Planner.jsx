@@ -5,9 +5,9 @@ import Tasks from './Tasks';
 const Planing = () => {
   const { state } = useContext(GlobalContext);
   return (
-    <div>
-      <Tasks tasks={state.tasks} title="backlog" />
-      <Tasks tasks={state.tasks} title="today" />
+    <div className="planner">
+      <Tasks tasks={state.backlog} title="backlog" />
+      <Tasks tasks={state.today} title="today" />
     </div>
   );
 };
