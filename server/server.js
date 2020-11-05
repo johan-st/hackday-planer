@@ -1,14 +1,16 @@
 const express = require('express');
 const bodyparser = require('body-parser');
+const cors = require('cors');
 const api = require('./tasksAPI');
 const logger = require('./logger');
 const authenticator = require('./authenticator');
 const app = express();
 
-// Config
+// Configs
 const port = 5000;
 
 // Middleware
+app.use(cors());
 app.use(bodyparser.json());
 app.use(logger);
 app.use(authenticator);

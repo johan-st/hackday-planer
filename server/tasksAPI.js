@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     API_schema: {
       GET: {
         '/': '[YOU ARE HERE]',
-        '/tasks': ' LIST TASKS',
+        '/tasks': { backlog: 'LIST TASKS', today: 'LIST TASKS' },
       },
       POST: {
         '/tasks': { expects: 'TASK', returns: 'TASKS' },
@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
 
 router.get('/tasks', (req, res) => {
   // console.log(`[${req.id}] handler: api/tasks`);
-  res.json(tasks);
+  res.json({ backlog: tasks, today: [] });
 });
 
 router.post('/tasks', (req, res) => {

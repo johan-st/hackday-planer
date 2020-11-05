@@ -4,13 +4,11 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { GlobalContext } from './GlobalContext';
-import { reducer, initialState, ACTION } from './reducer';
+import { reducer, initialState, DRAG_END } from './reducer';
 import Nav from './components/Nav';
 import Viewer from './components/Viewer';
 import Planner from './components/Planner';
 import Dashboard from './components/Dashboard';
-
-const { NOOP, DRAG_END } = ACTION;
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
