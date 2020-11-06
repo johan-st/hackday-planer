@@ -18,7 +18,7 @@ const Planing = () => {
   return (
     <div className="planner">
       <AddTask />
-      <Editor tasks={state.backlog} title="editor" />
+      <Editor tasks={state.editor} title="editor" />
       <section className="planner__task-board">
         <Tasks tasks={state.backlog} title="backlog" compact={true} />
         <Tasks tasks={state.today} title="today" />
