@@ -45,10 +45,11 @@ li {
   border: 1px solid black;
   min-width: 15rem;
   min-height: 10rem;
-  width: 66%;
+  width: 63%;
+  margin: 2%;
 }
 .task-list--compact {
-  width: 33%;
+  width: 30%;
   min-width: 15rem;
   min-height: 10rem;
 }
@@ -63,7 +64,7 @@ li {
   padding: 1rem 2rem;
   margin: 0.5rem 1rem;
   background-color: var(--clr-card);
-  width: 100%;
+  width: 80%;
 }
 .card--compact {
   padding: 2px;

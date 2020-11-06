@@ -1,4 +1,5 @@
 import React from 'react';
+import { millisElapsedToString, millisToString } from '../helpers';
 
 const Task = ({ task, provided, snapshot, compact }) => {
   // console.log(snapshot);
@@ -39,8 +40,8 @@ const Task = ({ task, provided, snapshot, compact }) => {
       {/* <p>id:{task.id}</p> */}
       {/* <p>{task.desc}</p> */}
       {task.blocked ? <p>:blocked:</p> : null}
-      <p>created:{task.created.toLocaleString()}</p>
-      {task.completed ? <p>done:{task.completed.toLocaleString()}</p> : null}
+      <p>created:{millisToString(task.created)}</p>
+      {task.completed ? <p>done:{millisToString(task.completed)}</p> : null}
       <div>scheduled:{task.scheduled.length} times</div>
     </li>
   );
