@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import { fetchAll } from '../http';
 import Tasks from './Tasks';
+import Editor from './Editor';
 import AddTask from './AddTask';
 import { GOT_TASKS } from '../reducer';
 
@@ -17,6 +18,7 @@ const Planing = () => {
   return (
     <div className="planner">
       <AddTask />
+      <Editor tasks={state.backlog} title="editor" />
       <section className="planner__task-board">
         <Tasks tasks={state.backlog} title="backlog" compact={true} />
         <Tasks tasks={state.today} title="today" />

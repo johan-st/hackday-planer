@@ -6,8 +6,6 @@ const Tasks = ({ tasks, title, compact }) => {
   return (
     <Droppable droppableId={title}>
       {(provided, snapshot) => {
-        // console.log(snapshot);
-
         return (
           <ul
             className={`task-list  

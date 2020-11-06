@@ -3,7 +3,7 @@ import { TASK_ADDED } from '../reducer';
 import { GlobalContext } from '../GlobalContext';
 import { createTask } from '../http';
 
-const AddTask = task => {
+const AddTask = (task, snapshot, provided) => {
   const [title, setTitle] = useState(task.title ?? '');
   //   const [desc, setDesc] = useState(task.desc ?? '');
   const onSubmitHandler = e => {
