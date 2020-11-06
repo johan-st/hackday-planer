@@ -6,7 +6,7 @@ const { tasks } = require('./placeholders');
 
 const startTime = new Date();
 
-const db = { backlog: tasks, today: [] };
+const db = { backlog: tasks, today: [], editor: [] };
 
 const createTask = json => ({
   id: uuid.v4(),
@@ -40,9 +40,9 @@ router.get('/', (req, res) => {
       STATUS: 'OK | ERROR STRING',
       TASK: {
         id: 'MAYBE ID',
-        inList: 'backlog',
         title: 'STRING',
         desc: 'STRING',
+        time_est: 'NUMBER',
         blocked: 'BOOLEAN',
         created: 'DATE',
         completed: 'MAYBE DATE',
