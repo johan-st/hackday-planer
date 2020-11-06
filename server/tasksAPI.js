@@ -1,9 +1,22 @@
 const express = require('express');
+const uuid = require('uuid');
 const { millisElapsedToString, schema } = require('./helpers');
 const router = express.Router();
 const { tasks } = require('./placeholders');
 
 const startTime = new Date();
+
+const db = { backlog: tasks, today: [] };
+
+const createTask = json => ({
+  id: uuid.v4(),
+  title: json.title ? json.title : 'new task',
+  desc: json.desc ? json.desc : 'no description',
+  blocked: false,
+  created: Date.now(),
+  completed: null,
+  scheduled: [],
+});
 
 router.get('/', (req, res) => {
   // console.log(`[${req.id}] handler: api root`);
@@ -27,6 +40,7 @@ router.get('/', (req, res) => {
       STATUS: 'OK | ERROR STRING',
       TASK: {
         id: 'MAYBE ID',
+        inList: 'backlog',
         title: 'STRING',
         desc: 'STRING',
         blocked: 'BOOLEAN',
@@ -41,14 +55,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/tasks', (req, res) => {
-  // console.log(`[${req.id}] handler: api/tasks`);
-  res.json({ backlog: tasks, today: [] });
+  res.json(db);
 });
 
 router.post('/tasks', (req, res) => {
+  const newTask = createTask(req.body);
+  db.backlog.unshift(newTask);
   res.status(201);
-  res.location(`api/tasks/${req.id}`);
-  res.json(req.body);
+  res.location(`api/tasks/${newTask.id}`);
+  res.json(newTask);
 });
 router.put('/tasks/:id', (req, res) => {
   console.log(`[${req.id}] task-id:[${req.params.id}]}`);

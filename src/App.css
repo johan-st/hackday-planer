@@ -1,8 +1,11 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css';
 :root {
   --clr-bg: #333333;
+  --clr-text: #ff9900;
   --clr-accent: #ff9900;
-  --clr-text: #aaa;
+  --clr-muted: #aaa;
+  --clr-card: rgb(14, 14, 14);
+  --clr-disabled: #444444;
 
   font-family: sans-serif;
   background-color: var(--clr-bg);
@@ -19,15 +22,35 @@ li {
 }
 .planner {
   display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+}
+.add-task {
+  border: 1px solid black;
+  width: min-content;
+  margin: 0 auto;
+}
+.add-task__text-input {
+  width: 30rem;
+}
+.planner__task-board {
+  display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 .task-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid black;
-  min-width: 10rem;
+  min-width: 15rem;
+  min-height: 10rem;
+  width: 66%;
+}
+.task-list--compact {
+  width: 33%;
+  min-width: 15rem;
+  min-height: 10rem;
 }
 .task-list--drag-source {
   border: 1px solid blue;
@@ -39,9 +62,44 @@ li {
   border: 1px solid black;
   padding: 1rem 2rem;
   margin: 0.5rem 1rem;
-  width: 400px;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-card);
+  width: 100%;
+}
+.card--compact {
+  padding: 2px;
+  margin: 2px;
+  line-height: 0rem;
+}
+.card--blocked {
+  background-color: var(--clr-disabled);
+  color: var(--clr-muted);
 }
 .card--dragging {
   border: 1px solid blue;
+}
+.card__header-notice {
+  font-size: 1rem;
+  margin: 0 1rem;
+}
+.button {
+  border: none;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 700;
+  width: 100%;
+  background-color: var(--clr-accent);
+  color: var(--clr-card);
+  cursor: pointer;
+}
+
+.CTA {
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 2rem;
+  background-color: var(--clr-accent);
+  color: var(--clr-card);
 }

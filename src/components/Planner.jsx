@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import { fetchAll } from '../http';
@@ -16,8 +17,13 @@ const Planing = () => {
   return (
     <div className="planner">
       <AddTask />
-      <Tasks tasks={state.backlog} title="backlog" />
-      <Tasks tasks={state.today} title="today" />
+      <section className="planner__task-board">
+        <Tasks tasks={state.backlog} title="backlog" compact={true} />
+        <Tasks tasks={state.today} title="today" />
+      </section>
+      <Link className="CTA" to="/users">
+        Get Going
+      </Link>
     </div>
   );
 };
