@@ -27,14 +27,38 @@ h5 {
 a {
   color: var(--clr-accent);
 }
+.button {
+  border: none;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 700;
+  width: 100%;
+  background-color: var(--clr-accent);
+  color: var(--clr-card);
+  cursor: pointer;
+}
+.CTA {
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 2rem;
+  background-color: var(--clr-accent);
+  color: var(--clr-card);
+}
+.viewer {
+  margin-top: 9rem;
+}
 .planner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr auto auto;
 }
-.add-task {
-  border: 1px solid rgb(0, 0, 0);
-  margin: 0 auto;
+.add-task__button--disabled {
+  display: none;
+  background-color: var(--clr-disabled);
 }
 
 .planner__task-board {
@@ -63,11 +87,10 @@ a {
   border: 1px solid red;
 }
 .editor {
+  border: 1px solid black;
   grid-column: 1/3;
   margin: 0 auto;
-}
-.editor__hint {
-  margin: 5px;
+  width: 420px;
 }
 .hint {
   color: var(--clr-muted);
@@ -94,25 +117,4 @@ a {
 .card__header-notice {
   font-size: 0.75em;
   margin: 0 1rem;
-}
-.button {
-  border: none;
-  text-align: center;
-  padding: 1rem;
-  font-weight: 700;
-  width: 100%;
-  background-color: var(--clr-accent);
-  color: var(--clr-card);
-  cursor: pointer;
-}
-.CTA {
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  padding: 1rem;
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 2rem;
-  background-color: var(--clr-accent);
-  color: var(--clr-card);
 }

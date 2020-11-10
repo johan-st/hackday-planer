@@ -17,14 +17,13 @@ function App() {
       <DragDropContext onDragEnd={res => dispatch(DRAG_END(res))}>
         <Router>
           <div className="App">
-            <Nav>
+            {/* <Nav>
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
               <Link to="/users">Users</Link>
-            </Nav>
+            </Nav> */}
             <Viewer>
               <Planner />
-              <Dashboard />
             </Viewer>
           </div>
         </Router>

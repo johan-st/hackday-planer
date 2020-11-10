@@ -2,16 +2,16 @@ import React from 'react';
 import Task from './Task';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import AddTask from './AddTask';
+import DeleteTask from './DeleteTask';
 
 const Editor = ({ tasks, title }) => {
   return (
     <Droppable droppableId={title} isDropDisabled={tasks.length > 0}>
       {(provided, snapshot) => {
         return (
-          <>
-            <AddTask />
+          <section className="editor">
             <ul
-              className={`editor task-list__list  
+              className={`editor-list__list  
               ${snapshot.draggingFromThisWith ? 'task-list--drag-source' : ''}
               ${snapshot.draggingOverWith ? 'task-list--drag-destination' : ''}
               `}
@@ -43,8 +43,16 @@ const Editor = ({ tasks, title }) => {
                 ) : null
               )}
               {provided.placeholder}
+              <AddTask
+                state={`${tasks.length > 0 ? 'disabled' : ''}
+              }`}
+              />
+              <DeleteTask
+                state={`${tasks.length === 0 ? 'disabled' : ''}
+              }`}
+              />
             </ul>
-          </>
+          </section>
         );
       }}
     </Droppable>

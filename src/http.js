@@ -10,7 +10,6 @@ const fetchAll = cb => {
 };
 
 const createTask = (title, cb) => {
-  console.log(title);
   fetch('http://localhost:5000/api/tasks', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -20,7 +19,6 @@ const createTask = (title, cb) => {
       return raw.json();
     })
     .then(json => {
-      console.log(json);
       cb(json);
     })
     .catch(err => alert(err));

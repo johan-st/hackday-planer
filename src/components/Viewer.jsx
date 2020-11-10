@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Viewer = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className="viewer">{children}</div>;
 };
 
 export default Viewer;

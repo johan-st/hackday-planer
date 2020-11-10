@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
-import { TASK_ADDED } from '../reducer';
+import { DELETE_TASK } from '../reducer';
 import { GlobalContext } from '../GlobalContext';
-import { createTask } from '../http';
 
-const AddTask = ({ state }) => {
+const DeleteTask = ({ state }) => {
   const onSubmitHandler = e => {
     e.preventDefault();
-    createTask('new task', res => {
-      dispatch(TASK_ADDED(res));
-    });
+    dispatch(DELETE_TASK());
   };
   const formClass = 'add-task';
   const buttonClass = `button add-task__button ${
@@ -17,9 +14,9 @@ const AddTask = ({ state }) => {
   const { dispatch } = useContext(GlobalContext);
   return (
     <form className={formClass} onSubmit={onSubmitHandler}>
-      <button className={buttonClass}>add new task</button>
+      <button className={buttonClass}>DELETE</button>
     </form>
   );
 };
 
-export default AddTask;
+export default DeleteTask;
